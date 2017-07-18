@@ -4,6 +4,7 @@
     "index": "./src/index.js"
   },
   "dependencies": {
+    "antd": "^2.12.1",
     "dva": "^1.2.1",
     "lib": "^3.0.1",
     "react": "^15.1.0",
