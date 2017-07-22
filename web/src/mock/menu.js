@@ -23,6 +23,13 @@ let database = [
     route: '/post',
   },
   {
+    id: '8',
+    bpid: '1',
+    name: 'Websites',
+    icon: 'shopping-cart',
+    route: '/website',
+  },
+  {
     id: '21',
     mpid: '-1',
     bpid: '2',

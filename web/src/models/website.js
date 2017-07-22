@@ -1,10 +1,10 @@
 import modelExtend from 'dva-model-extend'
 import { create, remove, update } from '../services/user'
-import * as usersService from '../services/users'
+import * as websitesService from '../services/websites'
 import { pageModel } from './common'
 import { config } from 'utils'
 
-const { query } = usersService
+const { query } = websitesService
 const { prefix } = config
 
 export default modelExtend(pageModel, {
@@ -21,7 +21,7 @@ export default modelExtend(pageModel, {
   subscriptions: {
     setup ({ dispatch, history }) {
       history.listen(location => {
-        if (location.pathname === '/user') {
+        if (location.pathname === '/website') {
           dispatch({
             type: 'query',
             payload: location.query,
@@ -35,11 +35,11 @@ export default modelExtend(pageModel, {
 
     *query ({ payload = {} }, { call, put }) {
       const data = yield call(query, payload)
-      if (data) {
+      if (data.status == 200 && data.message) {
         yield put({
           type: 'querySuccess',
           payload: {
-            list: data.data,
+            list: data.message,
             pagination: {
               current: Number(payload.page) || 1,
               pageSize: Number(payload.pageSize) || 10,
@@ -62,7 +62,7 @@ export default modelExtend(pageModel, {
     },
 
     *'multiDelete' ({ payload }, { call, put }) {
-      const data = yield call(usersService.remove, payload)
+      const data = yield call(websitesService.remove, payload)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: [] } })
         yield put({ type: 'query' })

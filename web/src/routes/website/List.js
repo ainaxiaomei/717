@@ -25,56 +25,43 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
 
   const columns = [
     {
-      title: 'Avatar',
-      dataIndex: 'avatar',
-      key: 'avatar',
-      width: 64,
-      className: styles.avatar,
-      render: (text) => <img alt={'avatar'} width={24} src={text} />,
-    }, {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: (text, record) => <Link to={`user/${record.id}`}>{text}</Link>,
-    }, {
-      title: 'NickName',
-      dataIndex: 'nickName',
-      key: 'nickName',
-    }, {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    }, {
-      title: 'Gender',
-      dataIndex: 'isMale',
-      key: 'isMale',
-      render: (text) => <span>{text
-            ? 'Male'
-            : 'Female'}</span>,
-    }, {
-      title: 'Phone',
-      dataIndex: 'phone',
-      key: 'phone',
-    }, {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    }, {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    }, {
-      title: 'CreateTime',
-      dataIndex: 'createTime',
-      key: 'createTime',
-    }, {
-      title: 'Operation',
-      key: 'operation',
-      width: 100,
-      render: (text, record) => {
-        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: 'Update' }, { key: '2', name: 'Delete' }]} />
-      },
+      title: 'Root',
+      dataIndex: 'root',
+      key: 'root',
     },
+    {
+      title: 'WebType',
+      dataIndex: 'web_type',
+      key: 'web_type',
+    }, {
+      title: 'Index',
+      dataIndex: 'index',
+      key: 'index',
+    }, {
+      title: 'Keyword',
+      dataIndex: 'keywords',
+      key: 'keywords',
+    }, {
+      title: 'Collection Source',
+      dataIndex: 'collection_source',
+      key: 'collection_source',
+    }, {
+      title: 'Day Pv',
+      dataIndex: 'day_pv',
+      key: 'day_pv',
+    }, {
+      title: 'Mon Pv',
+      dataIndex: 'mon_pv',
+      key: 'mon_pv',
+    }, {
+      title: 'Clone Number',
+      dataIndex: 'clone_number',
+      key: 'clone_number',
+    },{
+      title: 'Keywords Group',
+      dataIndex: 'keywords_group',
+      key: 'keywords_group',
+    }
   ]
 
   const getBodyWrapperProps = {

@@ -1,5 +1,6 @@
 const APIV1 = '/api/v1'
 const APIV2 = '/api/v2'
+const APIV3 = '/api/v3'
 
 module.exports = {
   name: 'AntD Admin',
@@ -20,9 +21,9 @@ module.exports = {
     posts: `${APIV1}/posts`,
     user: `${APIV1}/user/:id`,
     dashboard: `${APIV1}/dashboard`,
-    menus: `${APIV1}/menus`,
+    menus: `${APIV3}/menus`,
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
-    websites:`${APIV1}/websites`
+    websites:`${APIV3}/domain_select`
   },
 }
