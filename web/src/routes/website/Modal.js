@@ -33,7 +33,6 @@ const modal = ({
         ...getFieldsValue(),
         key: item.key,
       }
-      data.address = data.address.join(' ')
       onOk(data)
     })
   }
@@ -46,9 +45,9 @@ const modal = ({
   return (
     <Modal {...modalOpts}>
       <Form layout="horizontal">
-        <FormItem label="Name" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('name', {
-            initialValue: item.name,
+        <FormItem label="Root" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('root', {
+            initialValue: item.root,
             rules: [
               {
                 required: true,
@@ -56,9 +55,9 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="NickName" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('nickName', {
-            initialValue: item.nickName,
+        <FormItem label="Index" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('index', {
+            initialValue: item.index,
             rules: [
               {
                 required: true,
@@ -66,71 +65,45 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Gender" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('isMale', {
-            initialValue: item.isMale,
+        <FormItem label="WebType" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('web_type', {
+            initialValue: item.web_type,
             rules: [
               {
                 required: true,
-                type: 'boolean',
-              },
-            ],
-          })(
-            <Radio.Group>
-              <Radio value>Male</Radio>
-              <Radio value={false}>Female</Radio>
-            </Radio.Group>
-          )}
-        </FormItem>
-        <FormItem label="Age" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('age', {
-            initialValue: item.age,
-            rules: [
-              {
-                required: true,
-                type: 'number',
-              },
-            ],
-          })(<InputNumber min={18} max={100} />)}
-        </FormItem>
-        <FormItem label="Phone" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('phone', {
-            initialValue: item.phone,
-            rules: [
-              {
-                required: true,
-                pattern: /^1[34578]\d{9}$/,
-                message: 'The input is not valid phone!',
               },
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="E-mail" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('email', {
-            initialValue: item.email,
+        <FormItem label="Keywords" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('keywords', {
+            initialValue: item.keywords,
             rules: [
               {
                 required: true,
-                pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/,
-                message: 'The input is not valid E-mail!',
               },
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Address" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('address', {
-            initialValue: item.address && item.address.split(' '),
+        <FormItem label="Keywords Group" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('keywords_group', {
+            initialValue: item.keywords_group,
             rules: [
               {
                 required: true,
               },
             ],
-          })(<Cascader
-            size="large"
-            style={{ width: '100%' }}
-            options={city}
-            placeholder="Pick an address"
-          />)}
+          })(<Input />)}
+        </FormItem>
+        <FormItem label="Clone Number" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('clone_number', {
+            initialValue: item.clone_number,
+          })(<Input />)}
+        </FormItem>
+        <FormItem label="Collection Source" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('collection_source', {
+            initialValue: item.collection_source,
+          })(<Input />)}
         </FormItem>
       </Form>
     </Modal>

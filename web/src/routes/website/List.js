@@ -17,7 +17,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       confirm({
         title: 'Are you sure delete this record?',
         onOk () {
-          onDeleteItem(record.id)
+          onDeleteItem(record.root)
         },
       })
     }
@@ -61,6 +61,12 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: 'Keywords Group',
       dataIndex: 'keywords_group',
       key: 'keywords_group',
+    },{
+      title: 'Operation',
+      key: 'operation',
+      width: 100,
+      render: (text, record) => {
+        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: 'Update' }, { key: '2', name: 'Delete' }]} />}
     }
   ]
 

@@ -24,6 +24,10 @@ module.exports = {
     menus: `${APIV3}/menus`,
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
-    websites:`${APIV3}/domain_select`
+    websites:`${APIV3}/domain_select`,
+    website: {
+      add:`${APIV3}/domain_insert`,
+      delete:`${APIV3}/domain_delete`
+    }
   },
 }

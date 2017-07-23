@@ -1,5 +1,5 @@
 import modelExtend from 'dva-model-extend'
-import { create, remove, update } from '../services/user'
+import { create, remove, update } from '../services/website'
 import * as websitesService from '../services/websites'
 import { pageModel } from './common'
 import { config } from 'utils'
@@ -8,7 +8,7 @@ const { query } = websitesService
 const { prefix } = config
 
 export default modelExtend(pageModel, {
-  namespace: 'user',
+  namespace: 'website',
 
   state: {
     currentItem: {},
@@ -51,8 +51,8 @@ export default modelExtend(pageModel, {
     },
 
     *'delete' ({ payload }, { call, put, select }) {
-      const data = yield call(remove, { id: payload })
-      const { selectedRowKeys } = yield select(_ => _.user)
+      const data = yield call(remove, { root : payload })
+      const { selectedRowKeys } = yield select(_ => _.website)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: selectedRowKeys.filter(_ => _ !== payload) } })
         yield put({ type: 'query' })
