@@ -1,4 +1,5 @@
 import { request, config } from 'utils'
+import qs from 'qs';
 const { api } = config
 const { user,website } = api
 
@@ -19,18 +20,17 @@ export async function create (params) {
 }
 
 export async function remove (params) {
-  console.log(params);
   return request({
-    url: website.delete,
-    method: 'get',
-    data: params,
+    url: website.delete + '?' + qs.stringify(params),
+    method: 'delete',
+    data: {},
   })
 }
 
 export async function update (params) {
   return request({
-    url: user,
-    method: 'patch',
+    url: website.update,
+    method: 'post',
     data: params,
   })
 }

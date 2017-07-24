@@ -4,7 +4,7 @@ const { websites } = api
 
 export async function query (params) {
   return request({
-    url: websites,
+    url: websites.get,
     method: 'get',
     data: params,
   })
@@ -12,8 +12,8 @@ export async function query (params) {
 
 export async function remove (params) {
   return request({
-    url: users,
-    method: 'delete',
+    url: websites.delete,
+    method: 'post',
     data: params,
   })
 }

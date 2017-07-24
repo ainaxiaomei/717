@@ -62,7 +62,7 @@ export default modelExtend(pageModel, {
     },
 
     *'multiDelete' ({ payload }, { call, put }) {
-      const data = yield call(websitesService.remove, payload)
+      const data = yield call(websitesService.remove, payload.ids)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: [] } })
         yield put({ type: 'query' })
@@ -82,9 +82,8 @@ export default modelExtend(pageModel, {
     },
 
     *update ({ payload }, { select, call, put }) {
-      const id = yield select(({ user }) => user.currentItem.id)
-      const newUser = { ...payload, id }
-      const data = yield call(update, newUser)
+      console.log(payload);
+      const data = yield call(update, payload)
       if (data.success) {
         yield put({ type: 'hideModal' })
         yield put({ type: 'query' })
