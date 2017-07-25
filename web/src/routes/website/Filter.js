@@ -24,7 +24,6 @@ const TwoColProps = {
 const Filter = ({
   onAdd,
   onFilterChange,
-  filter,
   form: {
     getFieldDecorator,
     getFieldsValue,
@@ -32,10 +31,6 @@ const Filter = ({
   },
 }) => {
   const handleFields = (fields) => {
-    const { createTime } = fields
-    if (createTime.length) {
-      fields.createTime = [createTime[0].format('YYYY-MM-DD'), createTime[1].format('YYYY-MM-DD')]
-    }
     return fields
   }
 
@@ -60,26 +55,10 @@ const Filter = ({
     handleSubmit()
   }
 
-  const handleChange = (key, values) => {
-    let fields = getFieldsValue()
-    fields[key] = values
-    fields = handleFields(fields)
-    onFilterChange(fields)
-  }
-  const { name, address } = filter
-
-  let initialCreateTime = []
-  if (filter.createTime && filter.createTime[0]) {
-    initialCreateTime[0] = moment(filter.createTime[0])
-  }
-  if (filter.createTime && filter.createTime[1]) {
-    initialCreateTime[1] = moment(filter.createTime[1])
-  }
-
   return (
     <Row gutter={24}>
       <Col {...ColProps} xl={{ span: 12 }} md={{ span: 8 }} sm={{ span: 12 }}>
-        {getFieldDecorator('name', { initialValue: name })(<Search placeholder="Search Root" size="large" onSearch={handleSubmit} />)}
+        {getFieldDecorator('name', { initialValue: '' })(<Search placeholder="Search Root" size="large" onSearch={handleSubmit} />)}
       </Col>
       <Col {...TwoColProps} xl={{ span: 12 }} md={{ span: 16 }} sm={{ span: 12 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -99,7 +78,6 @@ const Filter = ({
 Filter.propTypes = {
   onAdd: PropTypes.func,
   form: PropTypes.object,
-  filter: PropTypes.object,
   onFilterChange: PropTypes.func,
 }
 

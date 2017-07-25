@@ -76,9 +76,6 @@ const Website = ({ location, dispatch, website, loading }) => {
   }
 
   const filterProps = {
-    filter: {
-      ...location.query,
-    },
     onFilterChange (value) {
       dispatch(routerRedux.push({
         pathname: location.pathname,
