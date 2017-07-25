@@ -23,8 +23,6 @@ const TwoColProps = {
 
 const Filter = ({
   onAdd,
-  isMotion,
-  switchIsMotion,
   onFilterChange,
   filter,
   form: {
@@ -80,34 +78,16 @@ const Filter = ({
 
   return (
     <Row gutter={24}>
-      <Col {...ColProps} xl={{ span: 4 }} md={{ span: 8 }}>
-        {getFieldDecorator('name', { initialValue: name })(<Search placeholder="Search Name" size="large" onSearch={handleSubmit} />)}
+      <Col {...ColProps} xl={{ span: 12 }} md={{ span: 8 }} sm={{ span: 12 }}>
+        {getFieldDecorator('name', { initialValue: name })(<Search placeholder="Search Root" size="large" onSearch={handleSubmit} />)}
       </Col>
-      <Col {...ColProps} xl={{ span: 4 }} md={{ span: 8 }}>
-        {getFieldDecorator('address', { initialValue: address })(
-          <Cascader
-            size="large"
-            style={{ width: '100%' }}
-            options={city}
-            placeholder="Please pick an address"
-            onChange={handleChange.bind(null, 'address')}
-          />)}
-      </Col>
-      <Col {...ColProps} xl={{ span: 6 }} md={{ span: 8 }} sm={{ span: 12 }}>
-        <FilterItem label="Createtime">
-          {getFieldDecorator('createTime', { initialValue: initialCreateTime })(
-            <RangePicker style={{ width: '100%' }} size="large" onChange={handleChange.bind(null, 'createTime')} />
-          )}
-        </FilterItem>
-      </Col>
-      <Col {...TwoColProps} xl={{ span: 10 }} md={{ span: 24 }} sm={{ span: 24 }}>
+      <Col {...TwoColProps} xl={{ span: 12 }} md={{ span: 16 }} sm={{ span: 12 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div >
             <Button type="primary" size="large" className="margin-right" onClick={handleSubmit}>Search</Button>
             <Button size="large" onClick={handleReset}>Reset</Button>
           </div>
           <div>
-            <Switch style={{ marginRight: 16 }} size="large" defaultChecked={isMotion} onChange={switchIsMotion} checkedChildren={'Motion'} unCheckedChildren={'Motion'} />
             <Button size="large" type="ghost" onClick={onAdd}>Create</Button>
           </div>
         </div>
@@ -118,8 +98,6 @@ const Filter = ({
 
 Filter.propTypes = {
   onAdd: PropTypes.func,
-  isMotion: PropTypes.bool,
-  switchIsMotion: PropTypes.func,
   form: PropTypes.object,
   filter: PropTypes.object,
   onFilterChange: PropTypes.func,

@@ -8,7 +8,7 @@ import Filter from './Filter'
 import Modal from './Modal'
 
 const Website = ({ location, dispatch, website, loading }) => {
-  const { list, pagination, currentItem, modalVisible, modalType, isMotion, selectedRowKeys } = website
+  const { list, pagination, currentItem, modalVisible, modalType, selectedRowKeys } = website
   const { pageSize } = pagination
 
   const modalProps = {
@@ -36,7 +36,6 @@ const Website = ({ location, dispatch, website, loading }) => {
     loading: loading.effects['website/query'],
     pagination,
     location,
-    isMotion,
     onChange (page) {
       const { query, pathname } = location
       dispatch(routerRedux.push({
@@ -77,7 +76,6 @@ const Website = ({ location, dispatch, website, loading }) => {
   }
 
   const filterProps = {
-    isMotion,
     filter: {
       ...location.query,
     },
@@ -109,9 +107,6 @@ const Website = ({ location, dispatch, website, loading }) => {
           modalType: 'create',
         },
       })
-    },
-    switchIsMotion () {
-      dispatch({ type: 'website/switchIsMotion' })
     },
   }
 
