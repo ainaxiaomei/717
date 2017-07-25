@@ -26,8 +26,15 @@ let database = [
     id: '8',
     bpid: '1',
     name: 'Websites',
-    icon: 'shopping-cart',
+    icon: 'bell',
     route: '/website',
+  },
+  {
+    id: '9',
+    bpid: '1',
+    name: 'Keyword',
+    icon: 'key',
+    route: '/keyword',
   },
   {
     id: '21',

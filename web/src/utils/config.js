@@ -21,7 +21,7 @@ module.exports = {
     posts: `${APIV1}/posts`,
     user: `${APIV1}/user/:id`,
     dashboard: `${APIV1}/dashboard`,
-    menus: `${APIV3}/menus`,
+    menus: `${APIV1}/menus`,
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
     websites:{
@@ -29,6 +29,15 @@ module.exports = {
       delete:`${APIV3}/domain_delete`
     },
     website: {
+      add:`${APIV3}/domain_insert`,
+      delete:`${APIV3}/domain_delete`,
+      update:`${APIV3}/domain_update`
+    },
+    keywords:{
+      get:`${APIV3}/keywords_select`,
+      delete:`${APIV3}/domain_delete`
+    },
+    keyword: {
       add:`${APIV3}/domain_insert`,
       delete:`${APIV3}/domain_delete`,
       update:`${APIV3}/domain_update`
