@@ -17,7 +17,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       confirm({
         title: 'Are you sure delete this record?',
         onOk () {
-          onDeleteItem(record.root)
+          onDeleteItem(record.name)
         },
       })
     }
@@ -26,8 +26,8 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
   const columns = [
     {
       title: 'Key',
-      dataIndex: 'key',
-      key: 'key',
+      dataIndex: 'name',
+      key: 'name',
     },
     {
       title: 'Operation',
@@ -54,7 +54,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
         scroll={{ x: 1250 }}
         columns={columns}
         simple
-        rowKey={record => record.root}
+        rowKey={record => record.name}
         getBodyWrapper={getBodyWrapper}
       />
     </div>

@@ -39,11 +39,11 @@ export default modelExtend(pageModel, {
         yield put({
           type: 'querySuccess',
           payload: {
-            list: data.message,
+            list: data.message.data,
             pagination: {
               current: Number(payload.page) || 1,
               pageSize: Number(payload.pageSize) || 10,
-              total: data.total,
+              total: data.message.total,
             },
           },
         })
@@ -51,7 +51,7 @@ export default modelExtend(pageModel, {
     },
 
     *'delete' ({ payload }, { call, put, select }) {
-      const data = yield call(remove, { root : payload })
+      const data = yield call(remove, { name : payload })
       const { selectedRowKeys } = yield select(_ => _.website)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: selectedRowKeys.filter(_ => _ !== payload) } })
