@@ -36,17 +36,17 @@ const Website = ({ location, dispatch, website, loading }) => {
     loading: loading.effects['website/query'],
     pagination,
     location,
-    onChange (page) {
-      const { query, pathname } = location
-      dispatch(routerRedux.push({
-        pathname,
-        query: {
-          ...query,
-          page: page.current,
-          pageSize: page.pageSize,
-        },
-      }))
-    },
+    // onChange (page) {
+    //   const { query, pathname } = location
+    //   dispatch(routerRedux.push({
+    //     pathname,
+    //     query: {
+    //       ...query,
+    //       page: page.current,
+    //       pageSize: page.pageSize,
+    //     },
+    //   }))
+    // },
     onDeleteItem (id) {
       dispatch({
         type: 'website/delete',

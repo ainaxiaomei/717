@@ -28,12 +28,21 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: 'Root',
       dataIndex: 'root',
       key: 'root',
-      sorter: (a,b)=>{ return a - b} 
     },
     {
       title: 'WebType',
       dataIndex: 'web_type',
       key: 'web_type',
+      sorter: (a,b)=>{
+          if (a.web_type < b.web_type) {
+            return -1;
+          }
+          if (a.web_type > b.web_type) {
+            return 1;
+          }
+          return 0;
+        }
+
     }, {
       title: 'Index',
       dataIndex: 'index',
