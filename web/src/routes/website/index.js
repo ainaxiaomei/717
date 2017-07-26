@@ -80,9 +80,9 @@ const Website = ({ location, dispatch, website, loading }) => {
       dispatch(routerRedux.push({
         pathname: location.pathname,
         query: {
-          ...value,
           page: 1,
           pageSize,
+          ...value,
         },
       }))
     },

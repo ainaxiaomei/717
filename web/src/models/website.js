@@ -81,7 +81,6 @@ export default modelExtend(pageModel, {
     },
 
     *update ({ payload }, { select, call, put }) {
-      console.log(payload);
       const data = yield call(update, payload)
       if (data.success) {
         yield put({ type: 'hideModal' })

@@ -31,6 +31,11 @@ const Filter = ({
   },
 }) => {
   const handleFields = (fields) => {
+    const { root } = fields
+
+    if(root == ''){
+      return {};
+    }
     return fields
   }
 
@@ -58,7 +63,7 @@ const Filter = ({
   return (
     <Row gutter={24}>
       <Col {...ColProps} xl={{ span: 12 }} md={{ span: 8 }} sm={{ span: 12 }}>
-        {getFieldDecorator('name', { initialValue: '' })(<Search placeholder="Search Root" size="large" onSearch={handleSubmit} />)}
+        {getFieldDecorator('root', { initialValue: '' })(<Search placeholder="Search Root" size="large" onSearch={handleSubmit} />)}
       </Col>
       <Col {...TwoColProps} xl={{ span: 12 }} md={{ span: 16 }} sm={{ span: 12 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
