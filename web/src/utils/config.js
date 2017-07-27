@@ -38,6 +38,7 @@ module.exports = {
       delete:`${APIV3}/domain_delete`
     },
     keyword: {
+      get:`${APIV3}/keywords_select`,
       add:`${APIV3}/domain_insert`,
       delete:`${APIV3}/keywords_delete`,
     }

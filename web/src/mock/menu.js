@@ -37,6 +37,13 @@ let database = [
     route: '/keyword',
   },
   {
+    id: '91',
+    mpid: '-1',
+    bpid: '9',
+    name: 'Keyword Detail',
+    route: '/keyword/:id',
+  },
+  {
     id: '21',
     mpid: '-1',
     bpid: '2',

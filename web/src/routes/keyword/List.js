@@ -28,6 +28,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: 'Key',
       dataIndex: 'name',
       key: 'name',
+      render: (text, record) => <Link to={`keyword/${record.name}`}>{text}</Link>
     },
     {
       title: 'Operation',
