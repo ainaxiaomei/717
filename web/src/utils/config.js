@@ -39,7 +39,7 @@ module.exports = {
     },
     keyword: {
       get:`${APIV3}/keywords_select`,
-      add:`${APIV3}/domain_insert`,
+      add:`${APIV3}/keywords_insert`,
       delete:`${APIV3}/keywords_delete`,
     }
   },

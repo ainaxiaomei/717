@@ -1,24 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import styles from './index.less'
+import {  Card,Button,Input } from 'antd'
+import { TextAreaCard } from 'components'
 
-const KeywordDetail = ({ keywordDetail }) => {
-  const { data } = keywordDetail
-  console.log(data);
-  const content = []
-  for (let key in data) {
-    if ({}.hasOwnProperty.call(data, key)) {
-      content.push(<div key={key} className={styles.item}>
-        <div>{key}</div>
-        <div>{String(data[key])}</div>
-      </div>)
+const KeywordDetail = ({ dispatch,keywordDetail }) => {
+  const { data,currentName} = keywordDetail
+  const textareaStyle = {
+    minHeight: 496,
+    width: '100%',
+    background: '#f7f7f7',
+    borderColor: '#F1F1F1',
+    padding: '16px 8px',
+  }
+
+  const textAreaCardPros = {
+    defaultValue:data,
+    onSubmit(data) {
+      dispatch({
+        type: `keyword/create`,
+        payload: {name:currentName,...data}
+      })
     }
   }
+
   return (<div className="content-inner">
-    <div className={styles.content}>
-      {content}
-    </div>
+    <TextAreaCard style={{...textareaStyle}} {...textAreaCardPros}/>
   </div>)
 }
 

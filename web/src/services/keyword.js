@@ -13,9 +13,9 @@ export async function query (params) {
 
 export async function create (params) {
   return request({
-    url: keyword.add,
+    url: keyword.add + '?name=' + params.name,
     method: 'post',
-    data: params,
+    data: params.keyword,
   })
 }
 

@@ -7,6 +7,7 @@ export default {
 
   state: {
     data: {},
+    currentName:""
   },
 
   subscriptions: {
@@ -30,6 +31,7 @@ export default {
           type: 'querySuccess',
           payload: {
             data: data.message,
+            currentName: payload.name
           },
         })
       } else {
@@ -40,10 +42,11 @@ export default {
 
   reducers: {
     querySuccess (state, { payload }) {
-      const { data } = payload
+      const { data, currentName} = payload
       return {
         ...state,
         data,
+        currentName
       }
     },
   },
