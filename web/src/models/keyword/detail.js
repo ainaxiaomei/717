@@ -49,5 +49,9 @@ export default {
         currentName
       }
     },
+
+    setData(state,{payload}){
+      return {...state,...payload}
+    }
   },
 }

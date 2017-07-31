@@ -24,8 +24,14 @@ const KeywordDetail = ({ dispatch,keywordDetail }) => {
     }
   }
 
+  oninput = (event)=>{
+    dispatch({
+      type: `keywordDetail/setData`,
+      payload: {data:event.target.value}
+    })
+  }
   return (<div className="content-inner">
-    <TextAreaCard style={{...textareaStyle}} {...textAreaCardPros}/>
+    <TextAreaCard style={{...textareaStyle}} {...textAreaCardPros} onInput={oninput}/>
   </div>)
 }
 

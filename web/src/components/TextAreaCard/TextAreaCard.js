@@ -14,7 +14,7 @@ class TextAreaCard extends React.Component {
     if (this.props.onSubmit) this.props.onSubmit(data)
   }
   render () {
-    const { defaultValue, style } = this.props
+    const { defaultValue, style,onInput} = this.props
     const { TextArea } = Input;
     return (
       <Card
@@ -23,8 +23,9 @@ class TextAreaCard extends React.Component {
         extra={<Button type="primary" size="large" onClick={this.handleSubmit}> Save </Button>}>
         <TextArea
           style={style}
-          defaultValue = {defaultValue}
+          value = {defaultValue}
           ref="keyTextArea"
+          onChange = {onInput}
         />
       </Card>
     )
