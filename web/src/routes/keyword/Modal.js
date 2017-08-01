@@ -31,7 +31,6 @@ const modal = ({
       }
       const data = {
         ...getFieldsValue(),
-        key: item.key,
       }
       onOk(data)
     })
@@ -45,9 +44,9 @@ const modal = ({
   return (
     <Modal {...modalOpts}>
       <Form layout="horizontal">
-        <FormItem label="Root" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('root', {
-            initialValue: item.root,
+        <FormItem label="Name" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('name', {
+            initialValue: "",
             rules: [
               {
                 required: true,
@@ -55,55 +54,10 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Index" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('index', {
-            initialValue: item.index,
-            rules: [
-              {
-                required: true,
-              },
-            ],
-          })(<Input />)}
-        </FormItem>
-        <FormItem label="WebType" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('web_type', {
-            initialValue: item.web_type,
-            rules: [
-              {
-                required: true,
-              },
-            ],
-          })(<Input />)}
-        </FormItem>
-        <FormItem label="Keywords" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('keywords', {
-            initialValue: item.keywords,
-            rules: [
-              {
-                required: true,
-              },
-            ],
-          })(<Input />)}
-        </FormItem>
-        <FormItem label="Keywords Group" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('keywords_group', {
-            initialValue: item.keywords_group,
-            rules: [
-              {
-                required: true,
-              },
-            ],
-          })(<Input />)}
-        </FormItem>
-        <FormItem label="Clone Number" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('clone_number', {
-            initialValue: item.clone_number,
-          })(<Input />)}
-        </FormItem>
-        <FormItem label="Collection Source" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('collection_source', {
-            initialValue: item.collection_source,
-          })(<Input />)}
+        <FormItem label="Keyword" hasFeedback {...formItemLayout}>
+          {getFieldDecorator('keyword', {
+            initialValue: "",
+          })(<Input.TextArea />)}
         </FormItem>
       </Form>
     </Modal>
