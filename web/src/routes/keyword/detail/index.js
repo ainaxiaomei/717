@@ -16,6 +16,7 @@ const KeywordDetail = ({ dispatch,keywordDetail }) => {
 
   const textAreaCardPros = {
     defaultValue:data,
+    title:"关键字",
     onSubmit(data) {
       dispatch({
         type: `keyword/create`,

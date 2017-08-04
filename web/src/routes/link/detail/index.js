@@ -16,6 +16,7 @@ const LinkDetail = ({ dispatch,linkDetail }) => {
 
   const textAreaCardPros = {
     defaultValue:data,
+    title:"链接",
     onSubmit(data) {
       dispatch({
         type: `linkDetail/create`,

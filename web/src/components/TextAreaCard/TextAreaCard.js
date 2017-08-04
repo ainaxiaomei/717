@@ -14,11 +14,11 @@ class TextAreaCard extends React.Component {
     if (this.props.onSubmit) this.props.onSubmit(data)
   }
   render () {
-    const { defaultValue, style,onInput} = this.props
+    const { defaultValue, style,onInput,title} = this.props
     const { TextArea } = Input;
     return (
       <Card
-        title="Keys"
+        title={title}
         style={{ overflow: 'visible' }}
         extra={<Button type="primary" size="large" onClick={this.handleSubmit}> Save </Button>}>
         <TextArea
@@ -37,6 +37,7 @@ TextAreaCard.propTypes = {
   onSubmit: PropTypes.func,
   style: PropTypes.object,
   defaultValue:PropTypes.string,
+  title:PropTypes.string,
   onInput:PropTypes.func
 }
 

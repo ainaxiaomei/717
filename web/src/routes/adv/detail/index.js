@@ -16,6 +16,7 @@ const AdvDetail = ({ dispatch,advDetail }) => {
 
   const textAreaCardPros = {
     defaultValue:data,
+    title:"广告",
     onSubmit(data) {
       dispatch({
         type: `advDetail/create`,
