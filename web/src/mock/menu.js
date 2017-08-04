@@ -216,6 +216,13 @@ let database = [
     icon: 'link',
     route: '/link',
   },
+  {
+    id: '11',
+    bpid: '1',
+    name: '广告',
+    icon: 'tag-o',
+    route: '/adv',
+  },
 
 ]
 

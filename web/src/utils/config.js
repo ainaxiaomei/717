@@ -47,6 +47,12 @@ module.exports = {
     },
     link:{
       add:`${APIV3}/links_insert`,
+    },
+    advs:{
+      get:`${APIV3}/ad_select`,
+    },
+    adv:{
+      add:`${APIV3}/ad_insert`,
     }
   },
 }
