@@ -38,6 +38,14 @@ const Routers = function ({ history, app }) {
             }, 'website')
           },
         },{
+          path: 'link',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/link/detail'))
+              cb(null, require('./routes/link/detail'))
+            }, 'link')
+          },
+        },{
           path: 'keyword',
           getComponent (nextState, cb) {
             require.ensure([], require => {

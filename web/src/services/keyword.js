@@ -15,7 +15,7 @@ export async function create (params) {
   return request({
     url: keyword.add + '?name=' + params.name,
     method: 'post',
-    data: params.keyword,
+    data: params.value,
   })
 }
 

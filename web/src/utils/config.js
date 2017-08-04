@@ -41,6 +41,12 @@ module.exports = {
       get:`${APIV3}/keywords_select`,
       add:`${APIV3}/keywords_insert`,
       delete:`${APIV3}/keywords_delete`,
+    },
+    links:{
+      get:`${APIV3}/links_select`,
+    },
+    link:{
+      add:`${APIV3}/links_insert`,
     }
   },
 }

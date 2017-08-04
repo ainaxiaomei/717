@@ -94,7 +94,6 @@ export default function request (options) {
         list: data,
       }
     }
-
     return {
       success: true,
       message: statusText,

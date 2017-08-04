@@ -9,7 +9,7 @@ class TextAreaCard extends React.Component {
   }
   handleSubmit = () => {
     const data = {
-      keyword: ReactDOM.findDOMNode(this.refs.keyTextArea).value,
+      value: ReactDOM.findDOMNode(this.refs.keyTextArea).value,
     }
     if (this.props.onSubmit) this.props.onSubmit(data)
   }
@@ -36,7 +36,8 @@ class TextAreaCard extends React.Component {
 TextAreaCard.propTypes = {
   onSubmit: PropTypes.func,
   style: PropTypes.object,
-  defaultValue:PropTypes.string
+  defaultValue:PropTypes.string,
+  onInput:PropTypes.func
 }
 
 export default TextAreaCard
