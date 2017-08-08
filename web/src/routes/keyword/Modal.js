@@ -55,7 +55,7 @@ const modal = ({
           })(<Input />)}
         </FormItem>
         <FormItem label="Keyword" hasFeedback {...formItemLayout}>
-          {getFieldDecorator('keyword', {
+          {getFieldDecorator('value', {
             initialValue: "",
           })(<Input.TextArea />)}
         </FormItem>
