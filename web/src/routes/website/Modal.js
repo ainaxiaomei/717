@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Form, Input, InputNumber, Radio, Modal, Cascader } from 'antd'
+import { Form, Input, InputNumber, Radio, Modal, Cascader,Select } from 'antd'
 import city from '../../utils/city'
 
 const FormItem = Form.Item
@@ -22,6 +22,7 @@ const modal = ({
     validateFields,
     getFieldsValue,
   },
+  keyGroup=[],
   ...modalProps
 }) => {
   const handleOk = () => {
@@ -40,6 +41,12 @@ const modal = ({
   const modalOpts = {
     ...modalProps,
     onOk: handleOk,
+  }
+
+  const Option = Select.Option;
+  const keyGroupOptions = [];
+  for (let i = 0; i < keyGroup.length; i++) {
+  keyGroupOptions.push(<Option key={keyGroup[i].name}>{keyGroup[i].name}</Option>);
   }
 
   return (
@@ -93,7 +100,7 @@ const modal = ({
                 required: true,
               },
             ],
-          })(<Input />)}
+          })(<Select>{keyGroupOptions}</Select>)}
         </FormItem>
         <FormItem label="Clone Number" hasFeedback {...formItemLayout}>
           {getFieldDecorator('clone_number', {
@@ -115,6 +122,7 @@ modal.propTypes = {
   type: PropTypes.string,
   item: PropTypes.object,
   onOk: PropTypes.func,
+  keyGroup: PropTypes.array,
 }
 
 export default Form.create()(modal)

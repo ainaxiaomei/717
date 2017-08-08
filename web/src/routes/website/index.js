@@ -8,11 +8,12 @@ import Filter from './Filter'
 import Modal from './Modal'
 
 const Website = ({ location, dispatch, website, loading }) => {
-  const { list, pagination, currentItem, modalVisible, modalType, selectedRowKeys } = website
+  const { list, pagination, currentItem, modalVisible, modalType, selectedRowKeys,keyGroup } = website
   const { pageSize } = pagination
 
   const modalProps = {
     item: modalType === 'create' ? {} : currentItem,
+    keyGroup: keyGroup,
     visible: modalVisible,
     maskClosable: false,
     confirmLoading: loading.effects['website/update'],

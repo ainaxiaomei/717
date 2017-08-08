@@ -26,7 +26,7 @@ const pageModel = modelExtend(model, {
 
   reducers: {
     querySuccess (state, { payload }) {
-      const { list, pagination } = payload
+      const { list, pagination, keyGroup } = payload
       return {
         ...state,
         list,
@@ -34,6 +34,7 @@ const pageModel = modelExtend(model, {
           ...state.pagination,
           ...pagination,
         },
+        keyGroup:keyGroup
       }
     },
   },

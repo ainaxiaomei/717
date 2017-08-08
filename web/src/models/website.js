@@ -1,6 +1,7 @@
 import modelExtend from 'dva-model-extend'
 import { create, remove, update } from '../services/website'
 import * as websitesService from '../services/websites'
+import * as keywordsService from '../services/keywords'
 import { pageModel } from './common'
 import { config } from 'utils'
 
@@ -11,6 +12,7 @@ export default modelExtend(pageModel, {
   namespace: 'website',
 
   state: {
+    keyGroup:[],
     currentItem: {},
     modalVisible: false,
     modalType: 'create',
@@ -33,8 +35,15 @@ export default modelExtend(pageModel, {
   effects: {
 
     *query ({ payload = {} }, { call, put }) {
+
       const data = yield call(query, payload)
       if (data.status == 200 && data.message) {
+
+      }else{
+        throw data;
+      }
+      const keygroup =yield call(keywordsService.query, payload);
+      if (keygroup.status == 200 && keygroup.message) {
         yield put({
           type: 'querySuccess',
           payload: {
@@ -44,6 +53,7 @@ export default modelExtend(pageModel, {
               pageSize: Number(payload.pageSize) || 10,
               total: data.total,
             },
+            keyGroup: keygroup.message.data,
           },
         })
       }
@@ -95,7 +105,7 @@ export default modelExtend(pageModel, {
   reducers: {
 
     showModal (state, { payload }) {
-      return { ...state, ...payload, modalVisible: true }
+      return { ...state, ...payload, modalVisible: true}
     },
 
     hideModal (state) {
