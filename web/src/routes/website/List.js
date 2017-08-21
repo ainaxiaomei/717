@@ -25,12 +25,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
 
   const columns = [
     {
-      title: 'Root',
-      dataIndex: 'root',
-      key: 'root',
-    },
-    {
-      title: 'WebType',
+      title: '网站类型',
       dataIndex: 'web_type',
       key: 'web_type',
       sorter: (a,b)=>{
@@ -43,40 +38,46 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
 
-    }, {
-      title: 'Index',
+    },
+    {
+      title: '网站主页',
+      dataIndex: 'root',
+      key: 'root',
+    },
+     {
+      title: '克隆主页',
       dataIndex: 'index',
       key: 'index',
     }, {
-      title: 'Keyword',
+      title: '网站名称',
       dataIndex: 'keywords',
       key: 'keywords',
     }, {
-      title: 'Collection Source',
+      title: '采集网站',
       dataIndex: 'collection_source',
       key: 'collection_source',
     }, {
-      title: 'Day Pv',
+      title: '日 PV',
       dataIndex: 'day_pv',
       key: 'day_pv',
     }, {
-      title: 'Mon Pv',
+      title: '月 PV',
       dataIndex: 'mon_pv',
       key: 'mon_pv',
     }, {
-      title: 'Clone Number',
+      title: '克隆个数',
       dataIndex: 'clone_number',
       key: 'clone_number',
     },{
-      title: 'Keywords Group',
+      title: '关键词组',
       dataIndex: 'keywords_group',
       key: 'keywords_group',
     },{
-      title: 'Operation',
+      title: '操作',
       key: 'operation',
       width: 100,
       render: (text, record) => {
-        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: 'Update' }, { key: '2', name: 'Delete' }]} />}
+        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: '更新' }, { key: '2', name: '删除' }]} />}
     }
   ]
 

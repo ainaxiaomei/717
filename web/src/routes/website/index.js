@@ -126,7 +126,7 @@ const Website = ({ location, dispatch, website, loading }) => {
              <Col>
                {`Selected ${selectedRowKeys.length} items `}
                <Popconfirm title={'Are you sure delete these items?'} placement="left" onConfirm={handleDeleteItems}>
-                 <Button type="primary" size="large" style={{ marginLeft: 8 }}>Remove</Button>
+                 <Button type="primary" size="large" style={{ marginLeft: 8 }}>删除</Button>
                </Popconfirm>
              </Col>
            </Row>
