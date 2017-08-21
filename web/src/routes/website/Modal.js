@@ -52,7 +52,7 @@ const modal = ({
   return (
     <Modal {...modalOpts}>
       <Form layout="horizontal">
-        <FormItem label="Root" hasFeedback {...formItemLayout}>
+        <FormItem label="网站主页" hasFeedback {...formItemLayout}>
           {getFieldDecorator('root', {
             initialValue: item.root,
             rules: [
@@ -62,17 +62,16 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Index" hasFeedback {...formItemLayout}>
+        <FormItem label="克隆主页" hasFeedback {...formItemLayout}>
           {getFieldDecorator('index', {
             initialValue: item.index,
             rules: [
               {
-                required: true,
               },
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="WebType" hasFeedback {...formItemLayout}>
+        <FormItem label="网站类型" hasFeedback {...formItemLayout}>
           {getFieldDecorator('web_type', {
             initialValue: item.web_type,
             rules: [
@@ -82,7 +81,7 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Keywords" hasFeedback {...formItemLayout}>
+        <FormItem label="网站名称" hasFeedback {...formItemLayout}>
           {getFieldDecorator('keywords', {
             initialValue: item.keywords,
             rules: [
@@ -92,7 +91,7 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Keywords Group" hasFeedback {...formItemLayout}>
+        <FormItem label="关键词组" hasFeedback {...formItemLayout}>
           {getFieldDecorator('keywords_group', {
             initialValue: item.keywords_group,
             rules: [
@@ -102,12 +101,12 @@ const modal = ({
             ],
           })(<Select>{keyGroupOptions}</Select>)}
         </FormItem>
-        <FormItem label="Clone Number" hasFeedback {...formItemLayout}>
+        <FormItem label="克隆个数" hasFeedback {...formItemLayout}>
           {getFieldDecorator('clone_number', {
             initialValue: item.clone_number,
           })(<Input />)}
         </FormItem>
-        <FormItem label="Collection Source" hasFeedback {...formItemLayout}>
+        <FormItem label="采集网站" hasFeedback {...formItemLayout}>
           {getFieldDecorator('collection_source', {
             initialValue: item.collection_source,
           })(<Input />)}

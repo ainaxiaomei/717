@@ -28,12 +28,13 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '关键词组',
       dataIndex: 'name',
       key: 'name',
+      width: "70%",
       render: (text, record) => <Link to={`keyword/${record.name}`}>{text}</Link>
     },
     {
       title: '操作',
       key: 'operation',
-      width: 100,
+      width: "30%",
       render: (text, record) => {
         //需求变更不得不适应代码
         var e = new Object();
