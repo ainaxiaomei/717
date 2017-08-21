@@ -25,17 +25,23 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
 
   const columns = [
     {
-      title: 'Key',
+      title: '关键词组',
       dataIndex: 'name',
       key: 'name',
       render: (text, record) => <Link to={`keyword/${record.name}`}>{text}</Link>
     },
     {
-      title: 'Operation',
+      title: '操作',
       key: 'operation',
       width: 100,
       render: (text, record) => {
-        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '2', name: 'Delete' }]} />}
+        //需求变更不得不适应代码
+        var e = new Object();
+        e.key = '2';
+        return <a onClick={()=>{handleMenuClick(record,e)}}>删除</a>
+      }
+
+        //return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '2', name: 'Delete' }]} />}
     }
   ]
 

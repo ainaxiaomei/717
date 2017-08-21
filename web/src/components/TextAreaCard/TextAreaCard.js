@@ -20,7 +20,7 @@ class TextAreaCard extends React.Component {
       <Card
         title={title}
         style={{ overflow: 'visible' }}
-        extra={<Button type="primary" size="large" onClick={this.handleSubmit}> Save </Button>}>
+        extra={<Button type="primary" size="large" onClick={this.handleSubmit}> 保存 </Button>}>
         <TextArea
           style={style}
           value = {defaultValue}

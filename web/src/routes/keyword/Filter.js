@@ -63,16 +63,16 @@ const Filter = ({
   return (
     <Row gutter={24}>
       <Col {...ColProps} xl={{ span: 12 }} md={{ span: 8 }} sm={{ span: 12 }}>
-        {getFieldDecorator('name', { initialValue: '' })(<Search placeholder="Search Root" size="large" onSearch={handleSubmit} />)}
+        {getFieldDecorator('name', { initialValue: '' })(<Search placeholder="搜索关键字" size="large" onSearch={handleSubmit} />)}
       </Col>
       <Col {...TwoColProps} xl={{ span: 12 }} md={{ span: 16 }} sm={{ span: 12 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div >
-            <Button type="primary" size="large" className="margin-right" onClick={handleSubmit}>Search</Button>
-            <Button size="large" onClick={handleReset}>Reset</Button>
+            <Button type="primary" size="large" className="margin-right" onClick={handleSubmit}>搜索</Button>
+            <Button size="large" onClick={handleReset}>重置</Button>
           </div>
           <div>
-            <Button size="large" type="ghost" onClick={onAdd}>Create</Button>
+            <Button size="large" type="ghost" onClick={onAdd}>创建</Button>
           </div>
         </div>
       </Col>
