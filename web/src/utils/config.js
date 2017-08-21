@@ -3,9 +3,9 @@ const APIV2 = '/api/v2'
 const APIV3 = '/api/v3'
 
 module.exports = {
-  name: 'AntD Admin',
+  name: '红马站群系统1.0',
   prefix: 'antdAdmin',
-  footerText: 'Ant Design Admin  © 2017 zuiidea',
+  footerText: '红马站群系统1.0  © 2017 ',
   logo: '/logo.png',
   iconFontCSS: '/iconfont.css',
   iconFontJS: '/iconfont.js',
