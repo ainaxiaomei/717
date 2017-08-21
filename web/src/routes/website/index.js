@@ -17,7 +17,7 @@ const Website = ({ location, dispatch, website, loading }) => {
     visible: modalVisible,
     maskClosable: false,
     confirmLoading: loading.effects['website/update'],
-    title: `${modalType === 'create' ? 'Create Website' : 'Update Website'}`,
+    title: `${modalType === 'create' ? '创建网站' : '更新网站'}`,
     wrapClassName: 'vertical-center-modal',
     onOk (data) {
       dispatch({

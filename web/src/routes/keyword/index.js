@@ -16,7 +16,7 @@ const Keyword = ({ location, dispatch, keyword, loading }) => {
     visible: modalVisible,
     maskClosable: false,
     confirmLoading: loading.effects['keyword/update'],
-    title: `${modalType === 'create' ? 'Create Keyword' : 'Update Keyword'}`,
+    title: `${modalType === 'create' ? '创建关键词组' : '更新关键词组'}`,
     wrapClassName: 'vertical-center-modal',
     onOk (data) {
       dispatch({

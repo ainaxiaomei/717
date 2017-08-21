@@ -44,7 +44,7 @@ const modal = ({
   return (
     <Modal {...modalOpts}>
       <Form layout="horizontal">
-        <FormItem label="Name" hasFeedback {...formItemLayout}>
+        <FormItem label="关键词组" hasFeedback {...formItemLayout}>
           {getFieldDecorator('name', {
             initialValue: "",
             rules: [
@@ -54,7 +54,7 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="Keyword" hasFeedback {...formItemLayout}>
+        <FormItem label="内容" hasFeedback {...formItemLayout}>
           {getFieldDecorator('value', {
             initialValue: "",
           })(<Input.TextArea />)}
