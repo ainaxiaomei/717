@@ -1,18 +1,16 @@
 import modelExtend from 'dva-model-extend'
 import { create, remove, update } from '../services/statistics'
-import * as websitesService from '../services/statistics'
-import * as keywordsService from '../services/keywords'
+import * as statisticsService from '../services/statistics'
 import { pageModel } from './common'
 import { config } from 'utils'
 
-const { query } = websitesService
+const { query } = statisticsService
 const { prefix } = config
 
 export default modelExtend(pageModel, {
   namespace: 'statistic',
 
   state: {
-    keyGroup:[],
     currentItem: {},
     modalVisible: false,
     modalType: 'create',
@@ -38,12 +36,6 @@ export default modelExtend(pageModel, {
 
       const data = yield call(query, payload)
       if (data.status == 200 && data.message) {
-
-      }else{
-        throw data;
-      }
-      const keygroup =yield call(keywordsService.query, payload);
-      if (keygroup.status == 200 && keygroup.message) {
         yield put({
           type: 'querySuccess',
           payload: {
@@ -53,9 +45,10 @@ export default modelExtend(pageModel, {
               pageSize: Number(payload.pageSize) || 10,
               total: data.total,
             },
-            keyGroup: keygroup.message.data,
           },
         })
+      }else{
+        throw data;
       }
     },
 
@@ -71,7 +64,7 @@ export default modelExtend(pageModel, {
     },
 
     *'multiDelete' ({ payload }, { call, put }) {
-      const data = yield call(websitesService.remove, payload.ids)
+      const data = yield call(statisticsService.remove, payload.ids)
       if (data.success) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: [] } })
         yield put({ type: 'query' })

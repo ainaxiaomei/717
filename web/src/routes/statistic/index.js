@@ -63,17 +63,6 @@ const Statistic = ({ location, dispatch, statistic, loading }) => {
         },
       })
     },
-    rowSelection: {
-      selectedRowKeys,
-      onChange: (keys) => {
-        dispatch({
-          type: 'statistic/updateState',
-          payload: {
-            selectedRowKeys: keys,
-          },
-        })
-      },
-    },
   }
 
   const filterProps = {

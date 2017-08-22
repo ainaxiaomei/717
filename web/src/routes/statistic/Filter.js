@@ -6,8 +6,6 @@ import { Form, Button, Row, Col, DatePicker, Input, Cascader, Switch } from 'ant
 import city from '../../utils/city'
 
 const Search = Input.Search
-const { RangePicker } = DatePicker
-
 const ColProps = {
   xs: 24,
   sm: 12,
@@ -62,17 +60,14 @@ const Filter = ({
 
   return (
     <Row gutter={24}>
-      <Col {...ColProps} xl={{ span: 12 }} md={{ span: 8 }} sm={{ span: 12 }}>
-        {getFieldDecorator('root', { initialValue: '' })(<Search placeholder="搜索网站主页" size="large" onSearch={handleSubmit} />)}
+      <Col {...ColProps} xl={{ span: 8 }} md={{ span: 8 }} sm={{ span: 12 }}>
+        {getFieldDecorator('date', { initialValue: '' })(<DatePicker/>)}
       </Col>
-      <Col {...TwoColProps} xl={{ span: 12 }} md={{ span: 16 }} sm={{ span: 12 }}>
+      <Col {...TwoColProps} xl={{ span: 16 }} md={{ span: 16 }} sm={{ span: 12 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div >
             <Button type="primary" size="large" className="margin-right" onClick={handleSubmit}>搜索</Button>
             <Button size="large" onClick={handleReset}>重置</Button>
-          </div>
-          <div>
-            <Button size="large" type="ghost" onClick={onAdd}>创建</Button>
           </div>
         </div>
       </Col>
