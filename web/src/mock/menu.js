@@ -223,6 +223,13 @@ let database = [
     icon: 'tag-o',
     route: '/adv',
   },
+  {
+    id: '12',
+    bpid: '1',
+    name: '统计',
+    icon: 'layout',
+    route: '/statistic',
+  },
 
 ]
 
