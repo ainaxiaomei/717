@@ -43,6 +43,9 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '网站主页',
       dataIndex: 'root',
       key: 'root',
+      render: (text, record) => {
+        return <a href={"https://www.baidu.com/s?wd=site%3A" + text} target="view_window">{text}</a>
+      }
     },
      {
       title: '克隆主页',
