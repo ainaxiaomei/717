@@ -1,29 +1,73 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
+import { Row, Col, Card } from 'antd'
+import { Sales, Browser, } from './components'
 import styles from './index.less'
+import { color } from 'utils'
 
-const Detail = ({ userDetail }) => {
-  const { data } = userDetail
-  const content = []
-  for (let key in data) {
-    if ({}.hasOwnProperty.call(data, key)) {
-      content.push(<div key={key} className={styles.item}>
-        <div>{key}</div>
-        <div>{String(data[key])}</div>
-      </div>)
-    }
-  }
-  return (<div className="content-inner">
-    <div className={styles.content}>
-      {content}
-    </div>
-  </div>)
+const bodyStyle = {
+  bodyStyle: {
+    height: 432,
+    background: '#fff',
+  },
 }
 
-Detail.propTypes = {
-  userDetail: PropTypes.object,
-  loading: PropTypes.bool,
+function StatisticDetail ({ statisticDetail }) {
+  const { sales, } = {};
+
+  const {data} = statisticDetail;
+  const browser = [
+          {
+            "day": "1 号",
+            "data": 11
+          },
+          {
+            "day": "2 号",
+            "data": 12
+          },
+          {
+            "day": "3 号",
+            "data": 13
+          },
+          {
+            "day": "4 号",
+            "data": 113
+          },{
+            "day": "5 号",
+            "data": 113
+          },{
+            "day": "6 号",
+            "data": 113
+          },{
+            "day": "7 号",
+            "data": 113
+          },{
+            "day": "8 号",
+            "data": 113
+          }
+        ]
+  return (
+    <Row gutter={24}>
+      <Col lg={18} md={24}>
+        <Card bordered={false} bodyStyle={{
+          padding: '24px 36px 24px 0',
+        }}>
+          <Sales data={sales} />
+        </Card>
+      </Col>
+      <Col lg={6} md={24}>
+        <Card bordered={false} {...bodyStyle}>
+          <Browser data={browser} />
+        </Card>
+      </Col>
+      
+    </Row>
+  )
 }
 
-export default connect(({ userDetail, loading }) => ({ userDetail, loading: loading.models.userDetail }))(Detail)
+StatisticDetail.propTypes = {
+  statisticDetail: PropTypes.object,
+}
+
+export default connect(({ statisticDetail }) => ({ statisticDetail }))(StatisticDetail)

@@ -40,11 +40,6 @@ export default modelExtend(pageModel, {
           type: 'querySuccess',
           payload: {
             list: data.message,
-            pagination: {
-              current: Number(payload.page) || 1,
-              pageSize: Number(payload.pageSize) || 10,
-              total: data.total,
-            },
           },
         })
       }else{

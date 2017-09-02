@@ -230,6 +230,13 @@ let database = [
     icon: 'layout',
     route: '/statistic',
   },
+  {
+    id: '121',
+    mpid: '-1',
+    bpid: '12',
+    name: '统计详情',
+    route: '/statistic/:root/:date',
+  },
 
 ]
 

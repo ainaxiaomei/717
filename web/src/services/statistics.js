@@ -1,11 +1,11 @@
 import { request, config } from 'utils'
 import qs from 'qs';
 const { api } = config
-const { statistic } = api
+const { statistics } = api
 
 export async function query (params) {
   return request({
-    url: statistic.get,
+    url: statistics.get,
     method: 'get',
     data: params,
   })
@@ -13,7 +13,7 @@ export async function query (params) {
 
 export async function create (params) {
   return request({
-    url: statistic.add,
+    url: statistics.add,
     method: 'post',
     data: params,
   })
@@ -21,7 +21,7 @@ export async function create (params) {
 
 export async function remove (params) {
   return request({
-    url: statistic.delete + '?' + qs.stringify(params),
+    url: statistics.delete + '?' + qs.stringify(params),
     method: 'delete',
     data: {},
   })
@@ -29,7 +29,7 @@ export async function remove (params) {
 
 export async function update (params) {
   return request({
-    url: statistic.update,
+    url: statistics.update,
     method: 'post',
     data: params,
   })

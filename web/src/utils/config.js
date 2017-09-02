@@ -33,11 +33,14 @@ module.exports = {
       delete:`${APIV3}/domain_delete`,
       update:`${APIV3}/domain_update`
     },
-    statistic: {
+    statistics: {
       get:`${APIV3}/statistics`,
       add:`${APIV3}/statistics`,
       delete:`${APIV3}/domain_delete`,
       update:`${APIV3}/domain_update`
+    },
+    statistic: {
+      get:`${APIV3}/statistics_details`,
     },
     keywords:{
       get:`${APIV3}/keywords_select`,

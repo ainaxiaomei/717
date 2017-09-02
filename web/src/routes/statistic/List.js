@@ -28,9 +28,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '网站主页',
       dataIndex: 'root',
       key: 'root',
-      render: (text, record) => {
-        return <a href={"https://www.baidu.com/s?wd=site%3A" + text} target="view_window">{text}</a>
-      }
+      render: (text, record) => <Link to={`statistic/${record.root}/${record.date}`}>{text}</Link>
     },
      {
       title: '统计时间',
