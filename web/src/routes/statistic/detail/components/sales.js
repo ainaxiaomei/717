@@ -8,7 +8,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 function Sales ({ data }) {
   return (
     <div className={styles.sales}>
-      <div className={styles.title}>Yearly Sales</div>
+      <div className={styles.title}>数据统计</div>
       <ResponsiveContainer minHeight={360}>
         <LineChart data={data}>
           <Legend verticalAlign="top"
@@ -19,7 +19,7 @@ function Sales ({ data }) {
               </ul>)
             }}
           />
-          <XAxis dataKey="name" axisLine={{ stroke: color.borderBase, strokeWidth: 1 }} tickLine={false} />
+          <XAxis dataKey="day" axisLine={{ stroke: color.borderBase, strokeWidth: 1 }} tickLine={false} />
           <YAxis axisLine={false} tickLine={false} />
           <CartesianGrid vertical={false} stroke={color.borderBase} strokeDasharray="3 3" />
           <Tooltip
@@ -29,9 +29,7 @@ function Sales ({ data }) {
               return <div className={styles.tooltip}><p className={styles.tiptitle}>{content.label}</p><ul>{list}</ul></div>
             }}
           />
-          <Line type="monotone" dataKey="Food" stroke={color.purple} strokeWidth={3} dot={{ fill: color.purple }} activeDot={{ r: 5, strokeWidth: 0 }} />
-          <Line type="monotone" dataKey="Clothes" stroke={color.red} strokeWidth={3} dot={{ fill: color.red }} activeDot={{ r: 5, strokeWidth: 0 }} />
-          <Line type="monotone" dataKey="Electronics" stroke={color.green} strokeWidth={3} dot={{ fill: color.green }} activeDot={{ r: 5, strokeWidth: 0 }} />
+          <Line type="monotone" dataKey="data" stroke={color.purple} strokeWidth={3} dot={{ fill: color.purple }} activeDot={{ r: 5, strokeWidth: 0 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>
