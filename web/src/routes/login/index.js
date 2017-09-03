@@ -15,7 +15,7 @@ const Login = ({
     validateFieldsAndScroll,
   },
 }) => {
-  const { loginLoading } = login
+  const { loginLoading,mode} = login
 
   function handleOk () {
     validateFieldsAndScroll((errors, values) => {
@@ -24,6 +24,18 @@ const Login = ({
       }
       dispatch({ type: 'login/login', payload: values })
     })
+  }
+
+  function handleReset (){
+    alert("reset");
+  }
+
+  function handleRegister (){
+    alert("register");
+  }
+
+  function changeMode (mode){
+    dispatch({ type: 'login/changMode', payload:{mode:mode}});
   }
 
   return (
@@ -40,7 +52,7 @@ const Login = ({
                 required: true,
               },
             ],
-          })(<Input size="large" onPressEnter={handleOk} placeholder="Username" />)}
+          })(<Input size="large" onPressEnter={handleOk} placeholder="用户名" />)}
         </FormItem>
         <FormItem hasFeedback>
           {getFieldDecorator('password', {
@@ -49,15 +61,25 @@ const Login = ({
                 required: true,
               },
             ],
-          })(<Input size="large" type="password" onPressEnter={handleOk} placeholder="Password" />)}
+          })(<Input size="large" type="password" onPressEnter={handleOk} placeholder="登陆密码" />)}
+        </FormItem>
+        <FormItem hasFeedback style = { mode == "login" ? {display:'none'} : {display:''}}>
+          {getFieldDecorator('confirm', {
+            rules: [
+              {
+                //required: true,
+              },
+            ],
+          })(<Input size="large" type="password" onPressEnter={handleOk} placeholder="确认密码" />)}
         </FormItem>
         <Row>
           <Button type="primary" size="large" onClick={handleOk} loading={loginLoading}>
-            Sign in
+            { mode == "register" ? "注册" : "确定"}
           </Button>
           <p>
-            <span>Username：guest</span>
-            <span>Password：guest</span>
+
+            <span><a href="#" onClick={()=>{changeMode('reset')}}>忘记密码</a></span>
+            <span><a href="#" onClick={()=>{changeMode('register')}}>免费注册</a></span>
           </p>
         </Row>
 

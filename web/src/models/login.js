@@ -6,6 +6,7 @@ export default {
   namespace: 'login',
   state: {
     loginLoading: false,
+    mode:'login'
   },
 
   effects: {
@@ -27,6 +28,9 @@ export default {
         throw data
       }
     },
+
+    *reset ({ payload = {} }, { call, put }) {
+    },
   },
   reducers: {
     showLoginLoading (state) {
@@ -40,6 +44,9 @@ export default {
         ...state,
         loginLoading: false,
       }
+    },
+    changMode (state, { payload }) {
+      return { ...state, ...payload}
     },
   },
 }

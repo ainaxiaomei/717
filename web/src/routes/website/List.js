@@ -25,7 +25,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
 
   const columns = [
     {
-      title: '网站类型',
+      title: '网站分组',
       dataIndex: 'web_type',
       key: 'web_type',
       sorter: (a,b)=>{
