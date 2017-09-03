@@ -57,8 +57,7 @@ const Dashboard = Mock.mock({
   user: {
     name: 'zuiidea',
     email: 'zuiiidea@.gmail.com',
-    sales: 3241,
-    sold: 3556,
+    role: '管理员',
     avatar: 'http://tva4.sinaimg.cn/crop.0.0.996.996.180/6ee6a3a3jw8f0ks5pk7btj20ro0rodi0.jpg',
   },
   'completed|12': [
@@ -100,24 +99,24 @@ const Dashboard = Mock.mock({
   },
   numbers: [
     {
-      icon: 'pay-circle-o',
+      icon: 'bell',
       color: color.green,
-      title: 'Online Review',
+      title: '网站',
       number: 2781,
     }, {
-      icon: 'team',
+      icon: 'key',
       color: color.blue,
-      title: 'New Customers',
+      title: '关键字',
       number: 3241,
     }, {
-      icon: 'message',
+      icon: 'link',
       color: color.purple,
-      title: 'Active Projects',
+      title: '链接',
       number: 253,
     }, {
-      icon: 'shopping-cart',
+      icon: 'layout',
       color: color.red,
-      title: 'Referrals',
+      title: '统计',
       number: 4324,
     },
   ],

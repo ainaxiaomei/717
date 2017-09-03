@@ -12,7 +12,7 @@ const countUpProps = {
   separator: ',',
 }
 
-function User ({ avatar, name, email, sales, sold }) {
+function User ({ avatar, name, email, role }) {
   return (<div className={styles.user}>
     <div className={styles.header}>
       <div className={styles.headerinner}>
@@ -23,23 +23,20 @@ function User ({ avatar, name, email, sales, sold }) {
     </div>
     <div className={styles.number}>
       <div className={styles.item}>
-        <p>EARNING SALES</p>
-        <p style={{ color: color.green }}><CountUp
-          end={sales}
-          prefix="$"
-          {...countUpProps}
-        /></p>
+        <p>当前用户</p>
+        <p style={{ color: color.green }}>
+          {name}
+        </p>
       </div>
       <div className={styles.item}>
-        <p>ITEM SOLD</p>
-        <p style={{ color: color.blue }}><CountUp
-          end={sold}
-          {...countUpProps}
-        /></p>
+        <p>用户角色</p>
+        <p style={{ color: color.blue }}>
+          {role}
+        </p>
       </div>
     </div>
     <div className={styles.footer}>
-      <Button type="ghost" size="large">View Profile</Button>
+      <Button type="ghost" size="large">修改密码</Button>
     </div>
   </div>)
 }
@@ -48,8 +45,7 @@ User.propTypes = {
   avatar: PropTypes.string,
   name: PropTypes.string,
   email: PropTypes.string,
-  sales: PropTypes.number,
-  sold: PropTypes.number,
+  role: PropTypes.string,
 }
 
 export default User
