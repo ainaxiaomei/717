@@ -28,6 +28,10 @@ module.exports = {
       get:`${APIV3}/domain_select`,
       delete:`${APIV3}/domain_delete`
     },
+    log:{
+      register:`${APIV3}/user_insert`,
+      login:`${APIV3}/user_login`,
+    },
     website: {
       add:`${APIV3}/domain_insert`,
       delete:`${APIV3}/domain_delete`,

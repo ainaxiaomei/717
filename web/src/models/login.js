@@ -1,4 +1,4 @@
-import { login } from '../services/login'
+import { login,register } from '../services/login'
 import { routerRedux } from 'dva/router'
 import { queryURL } from 'utils'
 
@@ -16,7 +16,7 @@ export default {
       yield put({ type: 'showLoginLoading' })
       const data = yield call(login, payload)
       yield put({ type: 'hideLoginLoading' })
-      if (data.success) {
+      if (data.status == 200 && data.message) {
         const from = queryURL('from')
         yield put({ type: 'app/query' })
         if (from) {
@@ -26,6 +26,20 @@ export default {
         }
       } else {
         throw data
+      }
+    },
+    *register ({
+      payload,
+    }, { put, call }) {
+      yield put({ type: 'showLoginLoading' });
+      const data = yield call(register, payload);
+      yield put({ type: 'hideLoginLoading' });
+      if (data.status == 200 && data.message) {
+        alert("注册成功");
+        //routerRedux.push('/login')
+        window.location = `${location.origin}/login`;
+      }else{
+        throw data;
       }
     },
 

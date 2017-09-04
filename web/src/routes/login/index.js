@@ -17,7 +17,7 @@ const Login = ({
 }) => {
   const { loginLoading,mode} = login
 
-  function handleOk () {
+  function handleLogin () {
     validateFieldsAndScroll((errors, values) => {
       if (errors) {
         return
@@ -31,7 +31,12 @@ const Login = ({
   }
 
   function handleRegister (){
-    alert("register");
+    validateFieldsAndScroll((errors, values) => {
+      if (errors) {
+        return
+      }
+      dispatch({ type: 'login/register', payload: values })
+    })
   }
 
   function changeMode (mode){
@@ -52,7 +57,7 @@ const Login = ({
                 required: true,
               },
             ],
-          })(<Input size="large" onPressEnter={handleOk} placeholder="用户名" />)}
+          })(<Input size="large" onPressEnter={handleLogin} placeholder="用户名" />)}
         </FormItem>
         <FormItem hasFeedback>
           {getFieldDecorator('password', {
@@ -61,7 +66,7 @@ const Login = ({
                 required: true,
               },
             ],
-          })(<Input size="large" type="password" onPressEnter={handleOk} placeholder="登陆密码" />)}
+          })(<Input size="large" type="password" onPressEnter={handleLogin} placeholder="登陆密码" />)}
         </FormItem>
         <FormItem hasFeedback style = { mode == "login" ? {display:'none'} : {display:''}}>
           {getFieldDecorator('confirm', {
@@ -70,15 +75,14 @@ const Login = ({
                 //required: true,
               },
             ],
-          })(<Input size="large" type="password" onPressEnter={handleOk} placeholder="确认密码" />)}
+          })(<Input size="large" type="password" onPressEnter={handleLogin} placeholder="确认密码" />)}
         </FormItem>
         <Row>
-          <Button type="primary" size="large" onClick={handleOk} loading={loginLoading}>
+          <Button type="primary" size="large" onClick={()=>{ mode == "login" ? handleLogin() : handleRegister()}} loading={loginLoading}>
             { mode == "register" ? "注册" : "确定"}
           </Button>
           <p>
-
-            <span><a href="#" onClick={()=>{changeMode('reset')}}>忘记密码</a></span>
+            <span style={{display:'none'}}><a href="#" onClick={()=>{changeMode('reset')}}>忘记密码</a></span>
             <span><a href="#" onClick={()=>{changeMode('register')}}>免费注册</a></span>
           </p>
         </Row>
