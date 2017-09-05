@@ -46,8 +46,9 @@ export default {
     *query ({
       payload,
     }, { call, put }) {
-      const { success, user } = yield call(query, payload)
-      if (success && user) {
+      const data = yield call(query, payload)
+      if (data.status == 200 && data.message && data.message.user) {
+        let user = data.message.user;
         const { list } = yield call(menusService.query)
         const { permissions } = user
         let menu = list

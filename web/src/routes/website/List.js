@@ -51,6 +51,9 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '克隆主页',
       dataIndex: 'index',
       key: 'index',
+      render: (text, record) => {
+        return <a href={`http://${text}`} target="view_window">{text}</a>
+      }
     }, {
       title: '网站名称',
       dataIndex: 'keywords',
@@ -59,6 +62,9 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '采集网站',
       dataIndex: 'collection_source',
       key: 'collection_source',
+      render: (text, record) => {
+        return <a href={`http://${text}`} target="view_window">{text}</a>
+      }
     }, {
       title: '日 PV',
       dataIndex: 'day_pv',
