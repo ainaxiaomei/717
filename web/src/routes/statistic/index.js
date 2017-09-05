@@ -67,14 +67,20 @@ const Statistic = ({ location, dispatch, statistic, loading }) => {
 
   const filterProps = {
     onFilterChange (value) {
-      dispatch(routerRedux.push({
-        pathname: location.pathname,
-        query: {
-          page: 1,
-          pageSize,
-          ...value,
+      dispatch({
+        type: 'statistic/query',
+        payload: {
+        ...value
         },
-      }))
+      })
+      // dispatch(routerRedux.push({
+      //   pathname: location.pathname,
+      //   query: {
+      //     page: 1,
+      //     pageSize,
+      //     ...value,
+      //   },
+      // }))
     },
     onSearch (fieldsValue) {
       fieldsValue.keyword.length ? dispatch(routerRedux.push({

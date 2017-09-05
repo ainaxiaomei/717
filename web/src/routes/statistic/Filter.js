@@ -29,12 +29,8 @@ const Filter = ({
   },
 }) => {
   const handleFields = (fields) => {
-    const { root } = fields
-
-    if(root == ''){
-      return {};
-    }
-    return fields
+    const { date } = fields
+    return {...fields,date:date.format("YYYY-MM-DD")}
   }
 
   const handleSubmit = () => {
