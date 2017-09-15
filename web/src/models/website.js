@@ -3,6 +3,7 @@ import { create, remove, update } from '../services/website'
 import * as websitesService from '../services/websites'
 import * as keywordsService from '../services/keywords'
 import { pageModel } from './common'
+import { Modal } from 'antd'
 import { config } from 'utils'
 
 const { query } = websitesService
@@ -83,7 +84,22 @@ export default modelExtend(pageModel, {
     *create ({ payload }, { call, put }) {
       const data = yield call(create, payload)
       if (data.success) {
-        yield put({ type: 'hideModal' })
+        //yield put({ type: 'hideModal' })
+      //    const confirm = Modal.confirm;
+      //    confirm({
+      //    title: '是否继续创建',
+      //    content: '创建成功',
+      //    onOk() {
+      //      console.log('ok');
+      //    },
+      //    onCancel() {
+      //       console.log(11111);
+      //    },
+      //  });
+      Modal.success({
+         title: '新建网站成功',
+         content: '您可以继续新建网站！',
+        });
         yield put({ type: 'query' })
       } else {
         throw data
