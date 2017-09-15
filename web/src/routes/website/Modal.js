@@ -71,7 +71,7 @@ const modal = ({
             ],
           })(<Input />)}
         </FormItem>
-        <FormItem label="网站类型" hasFeedback {...formItemLayout}>
+        <FormItem label="网站分组" hasFeedback {...formItemLayout}>
           {getFieldDecorator('web_type', {
             initialValue: item.web_type,
             rules: [

@@ -99,6 +99,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '关键词组',
       dataIndex: 'keywords_group',
       key: 'keywords_group',
+      render: (text, record) => <Link to={`keyword/${record.keywords_group}`}>{text}</Link>
     },{
       title: '操作',
       key: 'operation',
