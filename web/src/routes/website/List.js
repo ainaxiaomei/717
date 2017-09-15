@@ -69,10 +69,28 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '日 PV',
       dataIndex: 'day_pv',
       key: 'day_pv',
+      sorter: (a,b)=>{
+          if (a.day_pv < b.day_pv) {
+            return -1;
+          }
+          if (a.day_pv > b.day_pv) {
+            return 1;
+          }
+          return 0;
+        }
     }, {
       title: '月 PV',
       dataIndex: 'mon_pv',
       key: 'mon_pv',
+      sorter: (a,b)=>{
+          if (a.mon_pv < b.mon_pv) {
+            return -1;
+          }
+          if (a.mon_pv > b.mon_pv) {
+            return 1;
+          }
+          return 0;
+        }
     }, {
       title: '克隆个数',
       dataIndex: 'clone_number',

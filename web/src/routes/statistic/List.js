@@ -38,26 +38,80 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '总 PV',
       dataIndex: 'total_pv',
       key: 'total_pv',
+      sorter: (a,b)=>{
+          if (a.total_pv < b.total_pv) {
+            return -1;
+          }
+          if (a.total_pv > b.total_pv) {
+            return 1;
+          }
+          return 0;
+        }
     },  {
       title: '日 PV',
       dataIndex: 'day_pv',
       key: 'day_pv',
+      sorter: (a,b)=>{
+          if (a.day_pv < b.day_pv) {
+            return -1;
+          }
+          if (a.day_pv > b.day_pv) {
+            return 1;
+          }
+          return 0;
+        }
     }, {
       title: '月 PV',
       dataIndex: 'mon_pv',
       key: 'mon_pv',
+      sorter: (a,b)=>{
+          if (a.mon_pv < b.mon_pv) {
+            return -1;
+          }
+          if (a.mon_pv > b.mon_pv) {
+            return 1;
+          }
+          return 0;
+        }
     }, {
       title: '总 UV',
       dataIndex: 'total_uv',
       key: 'total_uv',
+      sorter: (a,b)=>{
+          if (a.total_uv < b.total_uv) {
+            return -1;
+          }
+          if (a.total_uv > b.total_uv) {
+            return 1;
+          }
+          return 0;
+        }
     },{
       title: '月 UV',
       dataIndex: 'mon_uv',
       key: 'mon_uv',
+      sorter: (a,b)=>{
+          if (a.mon_uv < b.mon_uv) {
+            return -1;
+          }
+          if (a.mon_uv > b.mon_uv) {
+            return 1;
+          }
+          return 0;
+        }
     },{
       title: '日 UV',
       dataIndex: 'day_uv',
       key: 'day_uv',
+      sorter: (a,b)=>{
+          if (a.day_uv < b.day_uv) {
+            return -1;
+          }
+          if (a.day_uv > b.day_uv) {
+            return 1;
+          }
+          return 0;
+        }
     },{
       title: '百度蜘蛛 UV',
       dataIndex: 'baidu_spider_uv',
@@ -83,6 +137,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
         simple
         rowKey={record => record.root}
         getBodyWrapper={getBodyWrapper}
+        pagination = {false}
       />
     </div>
   )
