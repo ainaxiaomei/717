@@ -108,6 +108,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
         simple
         rowKey={record => record.root}
         getBodyWrapper={getBodyWrapper}
+        pagination = {false}
       />
     </div>
   )
