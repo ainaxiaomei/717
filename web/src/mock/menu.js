@@ -237,6 +237,20 @@ let database = [
     name: '统计详情',
     route: '/statistic/:root/:date',
   },
+   {
+    id: '13',
+    bpid: '1',
+    name: '管理',
+    icon: 'user',
+    route: '/user',
+  },
+  {
+    id: '131',
+    mpid: '-1',
+    bpid: '13',
+    name: '用户信息',
+    route: '/user/:id',
+  }
 
 ]
 
