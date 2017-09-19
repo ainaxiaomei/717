@@ -58,6 +58,7 @@ const modal = ({
             rules: [
               {
                 required: true,
+                message: '网站主页不能为空!'
               },
             ],
           })(<Input />)}
@@ -77,6 +78,7 @@ const modal = ({
             rules: [
               {
                 required: true,
+                message: '网站分组不能为空!'
               },
             ],
           })(<Input />)}
@@ -87,6 +89,7 @@ const modal = ({
             rules: [
               {
                 required: true,
+                message: '网站名称不能为空!'
               },
             ],
           })(<Input />)}
@@ -97,6 +100,7 @@ const modal = ({
             rules: [
               {
                 required: true,
+                message: '关键词组不能为空!'
               },
             ],
           })(<Select>{keyGroupOptions}</Select>)}
