@@ -116,6 +116,15 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       title: '百度蜘蛛 UV',
       dataIndex: 'baidu_spider_uv',
       key: 'baidu_spider_uv',
+      sorter: (a,b)=>{
+          if (a.baidu_spider_uv < b.baidu_spider_uv) {
+            return -1;
+          }
+          if (a.baidu_spider_uv > b.baidu_spider_uv) {
+            return 1;
+          }
+          return 0;
+        }
     },
   ]
 
