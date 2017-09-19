@@ -22,7 +22,8 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       })
     }
   }
-
+  
+  
   const columns = [
     {
       title: '网站分组',
@@ -40,6 +41,34 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
 
     },
     {
+      title: '创建者',
+      dataIndex: 'operator',
+      key: 'operator',
+      sorter: (a,b)=>{
+          if (a.operator < b.operator) {
+            return -1;
+          }
+          if (a.operator > b.operator) {
+            return 1;
+          }
+          return 0;
+        }
+
+    },{
+      title: '创建时间',
+      dataIndex: 'create_time',
+      key: 'create_time',
+      sorter: (a,b)=>{
+          if (a.create_time < b.create_time) {
+            return -1;
+          }
+          if (a.create_time > b.create_time) {
+            return 1;
+          }
+          return 0;
+        }
+
+    },{
       title: '网站主页',
       dataIndex: 'root',
       key: 'root',
@@ -91,10 +120,6 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           }
           return 0;
         }
-    }, {
-      title: '克隆个数',
-      dataIndex: 'clone_number',
-      key: 'clone_number',
     },{
       title: '关键词组',
       dataIndex: 'keywords_group',
@@ -108,6 +133,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
         return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: '更新' }, { key: '2', name: '删除' }]} />}
     }
   ]
+  
 
   const getBodyWrapperProps = {
     page: location.query.page,

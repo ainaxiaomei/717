@@ -21,7 +21,7 @@ module.exports = {
     posts: `${APIV1}/posts`,
     user: `${APIV1}/user/:id`,
     dashboard: `${APIV1}/dashboard`,
-    menus: `${APIV1}/menus`,
+    menus: `${APIV3}/menus`,
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
     websites:{
