@@ -81,7 +81,9 @@ export default modelExtend(pageModel, {
       }
     },
 
-    *create ({ payload }, { call, put }) {
+    *create ({ payload }, { call, put , select}) {
+      const {user} = yield select(_ => _.app);
+      payload = {...payload,operator:user.username};
       const data = yield call(create, payload)
       if (data.success) {
         //yield put({ type: 'hideModal' })
