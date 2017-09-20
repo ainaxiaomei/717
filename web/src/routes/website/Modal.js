@@ -30,8 +30,15 @@ const modal = ({
       if (errors) {
         return
       }
+
+      let values = getFieldsValue();
+      for(let a in values){
+        var val = (values[a] + "").trim();
+        values[a] = val;
+      }
+
       const data = {
-        ...getFieldsValue(),
+        ...values,
         key: item.key,
       }
       onOk(data)
@@ -107,12 +114,12 @@ const modal = ({
         </FormItem>
         <FormItem label="克隆个数" hasFeedback {...formItemLayout}>
           {getFieldDecorator('clone_number', {
-            initialValue: item.clone_number,
+            initialValue: 50,
           })(<Input />)}
         </FormItem>
         <FormItem label="采集网站" hasFeedback {...formItemLayout}>
           {getFieldDecorator('collection_source', {
-            initialValue: item.collection_source,
+            initialValue: 'news.163.com',
           })(<Input />)}
         </FormItem>
       </Form>
