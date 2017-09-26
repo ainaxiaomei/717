@@ -32,6 +32,8 @@ module.exports = {
       register:`${APIV3}/user_insert`,
       login:`${APIV3}/user_login`,
       check:`${APIV3}/user_check`,
+      logout:`${APIV3}/user_logout`,
+      changePassword:`${APIV3}/user_update`,
 
     },
     website: {

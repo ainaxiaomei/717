@@ -17,3 +17,11 @@ export async function register (data) {
     data,
   })
 }
+
+export async function changePassword (data) {
+  return request({
+    url: log.changePassword,
+    method: 'post',
+    data,
+  })
+}

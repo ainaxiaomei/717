@@ -12,7 +12,7 @@ const countUpProps = {
   separator: ',',
 }
 
-function User ({ avatar, name, email, role }) {
+function User ({ avatar, name, email, role,chanegPassword }) {
   return (<div className={styles.user}>
     <div className={styles.header}>
       <div className={styles.headerinner}>
@@ -36,7 +36,7 @@ function User ({ avatar, name, email, role }) {
       </div>
     </div>
     <div className={styles.footer}>
-      <Button type="ghost" size="large">修改密码</Button>
+      <Button type="ghost" size="large" onClick={chanegPassword}>修改密码</Button>
     </div>
   </div>)
 }
@@ -46,6 +46,7 @@ User.propTypes = {
   name: PropTypes.string,
   email: PropTypes.string,
   role: PropTypes.string,
+  chanegPassword: PropTypes.func,
 }
 
 export default User
