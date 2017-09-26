@@ -6,6 +6,7 @@ import classnames from 'classnames'
 import AnimTableBody from '../../components/DataTable/AnimTableBody'
 import { DropOption } from 'components'
 import { Link } from 'dva/router'
+import moment from 'moment'
 
 const confirm = Modal.confirm
 
@@ -59,13 +60,13 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       dataIndex: 'create_time',
       key: 'create_time',
       sorter: (a,b)=>{
-          if (a.create_time < b.create_time) {
+          var atime = moment(a.create_time);
+          if (atime.isBefore(b.create_time)) {
             return -1;
-          }
-          if (a.create_time > b.create_time) {
+          }else{
             return 1;
           }
-          return 0;
+          
         }
 
     },{
