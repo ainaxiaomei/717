@@ -15,7 +15,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       onEditItem(record)
     } else if (e.key === '2') {
       confirm({
-        title: 'Are you sure delete this record?',
+        title: '确定删除这条记录?',
         onOk () {
           onDeleteItem(record.root)
         },
@@ -75,26 +75,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       render: (text, record) => {
         return <a href={"https://www.baidu.com/s?wd=site%3A" + text} target="view_window">{text}</a>
       }
-    },
-     {
-      title: '克隆主页',
-      dataIndex: 'index',
-      key: 'index',
-      render: (text, record) => {
-        return <a href={`http://${text}`} target="view_window">{text}</a>
-      }
-    }, {
-      title: '网站名称',
-      dataIndex: 'keywords',
-      key: 'keywords',
-    }, {
-      title: '采集网站',
-      dataIndex: 'collection_source',
-      key: 'collection_source',
-      render: (text, record) => {
-        return <a href={`http://${text}`} target="view_window">{text}</a>
-      }
-    }, {
+    },{
       title: '日 PV',
       dataIndex: 'day_pv',
       key: 'day_pv',
@@ -121,11 +102,6 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
     },{
-      title: '关键词组',
-      dataIndex: 'keywords_group',
-      key: 'keywords_group',
-      render: (text, record) => <Link to={`keyword/${record.keywords_group}`}>{text}</Link>
-    },{
       title: '操作',
       key: 'operation',
       width: 100,
@@ -148,7 +124,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
         {...tableProps}
         className={classnames({ [styles.table]: true, [styles.motion]: isMotion })}
         bordered
-        scroll={{ x: 1250 }}
+        scroll={{ x: 800 }}
         columns={columns}
         simple
         rowKey={record => record.root}

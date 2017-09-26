@@ -15,7 +15,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       onEditItem(record)
     } else if (e.key === '2') {
       confirm({
-        title: 'Are you sure delete this record?',
+        title: '确定删除这条记录吗?',
         onOk () {
           onDeleteItem(record.root)
         },
@@ -35,7 +35,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       dataIndex: 'date',
       key: 'date',
     }, {
-      title: '总 PV',
+      title: '总 IP',
       dataIndex: 'total_pv',
       key: 'total_pv',
       sorter: (a,b)=>{
@@ -48,7 +48,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
     },  {
-      title: '日 PV',
+      title: '日 IP',
       dataIndex: 'day_pv',
       key: 'day_pv',
       sorter: (a,b)=>{
@@ -61,7 +61,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
     }, {
-      title: '月 PV',
+      title: '月 IP',
       dataIndex: 'mon_pv',
       key: 'mon_pv',
       sorter: (a,b)=>{
@@ -74,7 +74,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
     }, {
-      title: '总 UV',
+      title: '总 PV',
       dataIndex: 'total_uv',
       key: 'total_uv',
       sorter: (a,b)=>{
@@ -87,7 +87,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
     },{
-      title: '月 UV',
+      title: '月 PV',
       dataIndex: 'mon_uv',
       key: 'mon_uv',
       sorter: (a,b)=>{
@@ -100,7 +100,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
           return 0;
         }
     },{
-      title: '日 UV',
+      title: '日 PV',
       dataIndex: 'day_uv',
       key: 'day_uv',
       sorter: (a,b)=>{
