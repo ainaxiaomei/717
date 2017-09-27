@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Button, Row, Form, Input, Icon, Checkbox } from 'antd'
+import { Button, Row, Form, Input, Icon, Checkbox, Modal } from 'antd'
 import { config } from 'utils'
 import styles from './index.less'
 
@@ -88,7 +88,13 @@ const Login = ({
           (
             <Checkbox>下次自动登录</Checkbox>
           )}
-          <a className="login-form-forgot" href="" style = {{float: 'right'}}>登录遇到问题</a>
+          <a className="login-form-forgot"   style = {{float: 'right'}} onClick={()=>{
+            Modal.warning({
+              title: '警告',
+              content: '登录问题或重置密码请联系管理人员！',
+              okText: '确认',
+              cancelText: '取消',
+            });}} >登录遇到问题</a>
           <Button type="primary" size="large" onClick={()=>{ mode == "login" ? handleLogin() : handleRegister()}} loading={loginLoading}>
             { mode == "register" ? "注册" : "确定"}
           </Button>
