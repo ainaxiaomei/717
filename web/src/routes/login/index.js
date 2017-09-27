@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Button, Row, Form, Input } from 'antd'
+import { Button, Row, Form, Input, Icon, Checkbox } from 'antd'
 import { config } from 'utils'
 import styles from './index.less'
 
@@ -57,7 +57,7 @@ const Login = ({
                 required: true,
               },
             ],
-          })(<Input size="large" onPressEnter={handleLogin} placeholder="用户名" />)}
+          })(<Input  prefix={<Icon type="user" style={{ fontSize: 13 }} />} size="large" onPressEnter={handleLogin} placeholder="用户名" />)}
         </FormItem>
         <FormItem hasFeedback>
           {getFieldDecorator('password', {
@@ -66,7 +66,7 @@ const Login = ({
                 required: true,
               },
             ],
-          })(<Input size="large" type="password" onPressEnter={handleLogin} placeholder="登陆密码" />)}
+          })(<Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} size="large" type="password" onPressEnter={handleLogin} placeholder="登陆密码" />)}
         </FormItem>
         <FormItem hasFeedback style = { mode == "login" ? {display:'none'} : {display:''}}>
           {getFieldDecorator('confirm', {
@@ -75,15 +75,27 @@ const Login = ({
                 //required: true,
               },
             ],
-          })(<Input size="large" type="password" onPressEnter={handleLogin} placeholder="确认密码" />)}
+          })(<Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} size="large" type="password" onPressEnter={handleLogin} placeholder="确认密码" />)}
         </FormItem>
+
         <Row>
+        <FormItem>
+          {getFieldDecorator('remember', 
+            { 
+              valuePropName: 'checked',
+              initialValue: true,
+            })
+          (
+            <Checkbox>下次自动登录</Checkbox>
+          )}
+          <a className="login-form-forgot" href="" style = {{float: 'right'}}>登录遇到问题</a>
           <Button type="primary" size="large" onClick={()=>{ mode == "login" ? handleLogin() : handleRegister()}} loading={loginLoading}>
             { mode == "register" ? "注册" : "确定"}
           </Button>
+          </FormItem>
           <p>
             <span style={{display:'none'}}><a href="#" onClick={()=>{changeMode('reset')}}>忘记密码</a></span>
-            <span><a href="#" onClick={()=>{changeMode('register')}}>免费注册</a></span>
+            <span><a href="#" style = {{display:'none'}} onClick={()=>{changeMode('register')}}>免费注册</a></span>
           </p>
         </Row>
 
