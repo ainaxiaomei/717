@@ -12,7 +12,7 @@ export async function login (params) {
 
 export async function logout (params) {
   return request({
-    url: userLogout,
+    url: log.logout,
     method: 'get',
     data: params,
   })

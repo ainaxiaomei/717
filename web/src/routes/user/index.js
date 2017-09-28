@@ -16,7 +16,7 @@ const User = ({ location, dispatch, user, loading }) => {
     visible: modalVisible,
     maskClosable: false,
     confirmLoading: loading.effects['user/update'],
-    title: `${modalType === 'create' ? 'Create User' : 'Update User'}`,
+    title: `${modalType === 'create' ? '创建用户' : '更新用户'}`,
     wrapClassName: 'vertical-center-modal',
     onOk (data) {
       dispatch({
@@ -48,10 +48,10 @@ const User = ({ location, dispatch, user, loading }) => {
         },
       }))
     },
-    onDeleteItem (id) {
+    onDeleteItem (record) {
       dispatch({
         type: 'user/delete',
-        payload: id,
+        payload: record,
       })
     },
     onEditItem (item) {

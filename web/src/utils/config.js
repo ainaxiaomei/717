@@ -34,6 +34,8 @@ module.exports = {
       check:`${APIV3}/user_check`,
       logout:`${APIV3}/user_logout`,
       changePassword:`${APIV3}/user_update`,
+      query:`${APIV3}/user_select`,
+      delete:`${APIV3}/user_delete`,
 
     },
     website: {

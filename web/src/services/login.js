@@ -18,6 +18,23 @@ export async function register (data) {
   })
 }
 
+export async function remove (data) {
+   console.log(data);
+  return request({
+    url: log.delete,
+    method: 'post',
+    data,
+  })
+}
+
+export async function query (data) {
+  return request({
+    url: log.query,
+    method: 'get',
+    data,
+  })
+}
+
 export async function changePassword (data) {
   return request({
     url: log.changePassword,

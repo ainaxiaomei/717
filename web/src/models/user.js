@@ -1,10 +1,10 @@
 import modelExtend from 'dva-model-extend'
-import { create, remove, update } from '../services/user'
+import { create, update } from '../services/user'
 import * as usersService from '../services/users'
 import { pageModel } from './common'
 import { config } from 'utils'
+import { register,query,remove } from '../services/login'
 
-const { query } = usersService
 const { prefix } = config
 
 export default modelExtend(pageModel, {
@@ -35,11 +35,11 @@ export default modelExtend(pageModel, {
 
     *query ({ payload = {} }, { call, put }) {
       const data = yield call(query, payload)
-      if (data) {
+      if (data.status == 200 && data.message) {
         yield put({
           type: 'querySuccess',
           payload: {
-            list: data.data,
+            list: data.message,
             pagination: {
               current: Number(payload.page) || 1,
               pageSize: Number(payload.pageSize) || 10,
@@ -47,13 +47,15 @@ export default modelExtend(pageModel, {
             },
           },
         })
+      }else{
+        throw data;
       }
     },
 
     *'delete' ({ payload }, { call, put, select }) {
-      const data = yield call(remove, { id: payload })
+      const data = yield call(remove, payload)
       const { selectedRowKeys } = yield select(_ => _.user)
-      if (data.success) {
+      if (data.status == 200 && data.message) {
         yield put({ type: 'updateState', payload: { selectedRowKeys: selectedRowKeys.filter(_ => _ !== payload) } })
         yield put({ type: 'query' })
       } else {
@@ -72,8 +74,8 @@ export default modelExtend(pageModel, {
     },
 
     *create ({ payload }, { call, put }) {
-      const data = yield call(create, payload)
-      if (data.success) {
+      const data = yield call(register, payload);
+      if (data.status == 200 && data.message) {
         yield put({ type: 'hideModal' })
         yield put({ type: 'query' })
       } else {

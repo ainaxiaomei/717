@@ -6,6 +6,7 @@ import classnames from 'classnames'
 import AnimTableBody from '../../components/DataTable/AnimTableBody'
 import { DropOption } from 'components'
 import { Link } from 'dva/router'
+import  md5 from 'md5'
 
 const confirm = Modal.confirm
 
@@ -15,9 +16,9 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       onEditItem(record)
     } else if (e.key === '2') {
       confirm({
-        title: 'Are you sure delete this record?',
+        title: '确定删除吗?',
         onOk () {
-          onDeleteItem(record.id)
+          onDeleteItem({...record,password:md5(record.password)});
         },
       })
     }
@@ -33,22 +34,15 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       dataIndex: 'password',
       key: 'password',
     }, {
-      title: 'Gender',
-      dataIndex: 'isMale',
-      key: 'isMale',
-      render: (text) => <span>{text
-            ? 'Male'
-            : 'Female'}</span>,
+      title: '角色',
+      dataIndex: 'role',
+      key: 'role',
     },{
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
-    },{
-      title: 'Operation',
+      title: '操作',
       key: 'operation',
       width: 100,
       render: (text, record) => {
-        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: 'Update' }, { key: '2', name: 'Delete' }]} />
+        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '2', name: '删除' }]} />
       },
     },
   ]
