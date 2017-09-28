@@ -19,7 +19,8 @@ export default {
   },
   effects: {
     *query ({payload}, { call, put }) {
-      const data = yield call(query, parse(payload));
+      var data = yield call(query, parse(payload));
+      console.log(data);
       yield put({
           type: 'querySuccess',
           payload: {

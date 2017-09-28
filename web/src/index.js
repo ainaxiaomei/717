@@ -15,7 +15,10 @@ const app = dva({
     message.error(error.message,3)
   },
 })
-
+message.config({
+  top: 400,
+  duration: 2,
+});
 // 2. Model
 app.model(require('./models/app'))
 
