@@ -7,6 +7,7 @@ import styles from './index.less'
 import { color } from 'utils'
 import Modal from './Modal.js'
 
+
 const bodyStyle = {
   bodyStyle: {
     height: 432,
@@ -39,7 +40,6 @@ function Dashboard ({ dashboard,dispatch}) {
   return (
     <div>
       <Row gutter={24}>
-        {numberCards}
         <Col lg={24} md={24}>
           <Card bordered={false} bodyStyle={{ ...bodyStyle.bodyStyle, padding: 0 }}>
             <User {...user} chanegPassword = {()=>{

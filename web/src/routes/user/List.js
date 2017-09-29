@@ -18,7 +18,7 @@ const List = ({ onDeleteItem, onEditItem, isMotion, location, ...tableProps }) =
       confirm({
         title: '确定删除吗?',
         onOk () {
-          onDeleteItem({...record,password:md5(record.password)});
+          onDeleteItem(record);
         },
       })
     }

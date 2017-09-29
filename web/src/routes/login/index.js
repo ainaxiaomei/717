@@ -4,6 +4,7 @@ import { connect } from 'dva'
 import { Button, Row, Form, Input, Icon, Checkbox, Modal } from 'antd'
 import { config } from 'utils'
 import styles from './index.less'
+import  md5 from 'md5'
 
 const FormItem = Form.Item
 
@@ -22,7 +23,7 @@ const Login = ({
       if (errors) {
         return
       }
-      dispatch({ type: 'login/login', payload: values })
+      dispatch({ type: 'login/login', payload: {...values,password:md5(values.password)} })
     })
   }
 

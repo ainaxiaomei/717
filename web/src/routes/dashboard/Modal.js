@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Form, Input, InputNumber, Radio, Modal, Cascader,Select } from 'antd'
 import city from '../../utils/city'
+import  md5 from 'md5'
 
 const FormItem = Form.Item
 
@@ -35,7 +36,7 @@ const modal = ({
         ...getFieldsValue(),
         key: item.key,
       }
-      onOk(data)
+      onOk({...data,password:md5(data.password),newpassword:md5(data.newpassword)})
     })
   }
 
