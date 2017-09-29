@@ -21,20 +21,6 @@ function User ({ avatar, name, email, role,chanegPassword }) {
         <p>{email}</p>
       </div>
     </div>
-    <div className={styles.number}>
-      <div className={styles.item}>
-        <p>当前用户</p>
-        <p style={{ color: color.green }}>
-          {name}
-        </p>
-      </div>
-      <div className={styles.item}>
-        <p>用户角色</p>
-        <p style={{ color: color.blue }}>
-          {role}
-        </p>
-      </div>
-    </div>
     <div className={styles.footer}>
       <Button type="ghost" size="large" onClick={chanegPassword}>修改密码</Button>
     </div>
